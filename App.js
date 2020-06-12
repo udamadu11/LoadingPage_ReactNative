@@ -13,12 +13,19 @@ import {
 } from 'react-native';
 
 import {Router , Scene} from 'react-native-router-flux';
+
+import LoadingSecne from './src/scenes/loadingScene';
+import AuthScene from './src/scenes/AuthScene';
+
 class App extends React.Component{
   render(){
     return(
-      <View>
-        
-      </View>
+      <Router>
+        <Scene key="root">
+            <Scene key="loading" component={LoadingSecne} hideNavBar={true} initial={true}></Scene>
+            <Scene key="auth" component={AuthScene} hideNavBar={true}></Scene>
+        </Scene>
+      </Router>
     );
   }
 };
