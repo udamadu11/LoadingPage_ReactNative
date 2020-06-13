@@ -1,15 +1,21 @@
 import React from 'react';
-import { View,Text,Animated,StyleSheet,Image} from 'react-native';
+import { View,Text,Animated,StyleSheet,Image,ActivityIndicator} from 'react-native';
+
+import {Actions} from 'react-native-router-flux';
 
 import Logo from '../img/bu.png';
 
+const swithToAuth = () =>{
+    Actions.replace('auth');
+};
+    
 class LoadingScene extends React.Component{
-
 state = {
     LogoAnime: new Animated.Value(0),
     LogoText: new Animated.Value(0),
-    loadingSpinner:false,
+    loadingSpinner: false
 };
+
 componentDidMount(){
     const {LogoAnime, LogoText} = this.state;
     Animated.parallel([
@@ -31,6 +37,7 @@ componentDidMount(){
         this.setState({
             loadingSpinner: true
         });
+        setTimeout(swithToAuth,1200);
     });
 };
     render(){
@@ -48,6 +55,7 @@ componentDidMount(){
                 </Animated.View>
                 <Animated.View style={{opacity:this.state.LogoText}}>
                     <Text style={styles.logoText}> eBus </Text>
+                    <ActivityIndicator size="large" color="#00ff00" />
                 </Animated.View>
                 
             </View>
@@ -58,12 +66,12 @@ componentDidMount(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: '#381a47',
+        backgroundColor: '#B3E5FC',
         justifyContent:'center',
         alignItems:'center'
     },
     logoText:{
-        color:'#FFFFFF',
+        color:'#222',
         fontSize:30,
         marginTop:29.1,
         fontWeight:"200"
