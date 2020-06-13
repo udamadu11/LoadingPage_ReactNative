@@ -66,12 +66,12 @@ componentDidMount(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: '#B3E5FC',
+        backgroundColor: '#344955',
         justifyContent:'center',
         alignItems:'center'
     },
     logoText:{
-        color:'#222',
+        color:'#f9Af33',
         fontSize:30,
         marginTop:29.1,
         fontWeight:"200"
