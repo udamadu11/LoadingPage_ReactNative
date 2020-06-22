@@ -24,8 +24,6 @@ export default class Screen extends React.Component{
                 </View>
                 <Text style={{fontSize:15,justifyContent:'center',alignSelf:'center',color:'grey'}}>or Via Social Media</Text>
                 <View style={{flexDirection:'row',margin:20,paddingVertical:20}}>
-                    <TouchableOpacity>
-                    </TouchableOpacity>
                 </View>
             </View>
         );
