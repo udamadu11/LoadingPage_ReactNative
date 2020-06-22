@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
 import React from 'react';
 import {
@@ -14,6 +7,8 @@ import {
 
 import {Router , Scene} from 'react-native-router-flux';
 
+import Screen from './src/scenes/Screen';
+import LoginScene from './src/scenes/login';
 import LoadingSecne from './src/scenes/loadingScene';
 import AuthScene from './src/scenes/AuthScene';
 
@@ -24,6 +19,8 @@ class App extends React.Component{
         <Scene key="root">
             <Scene key="loading" component={LoadingSecne} hideNavBar={true} initial={true}></Scene>
             <Scene key="auth" component={AuthScene} hideNavBar={true}></Scene>
+            <Scene key="login" component={LoginScene} hideNavBar={true}></Scene>
+            <Scene key="screen" component={Screen} hideNavBar={true}></Scene>
         </Scene>
       </Router>
     );

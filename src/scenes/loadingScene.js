@@ -3,10 +3,10 @@ import { View,Text,Animated,StyleSheet,Image,ActivityIndicator, ImageBackground}
 
 import {Actions} from 'react-native-router-flux';
 
-import Logo from '../img/G1.png';
+import Logo from '../img/G3.png';
 
 const swithToAuth = () =>{
-    Actions.replace('auth');
+    Actions.replace('screen');
 };
     
 class LoadingScene extends React.Component{
@@ -37,13 +37,13 @@ componentDidMount(){
         this.setState({
             loadingSpinner: true
         });
-        setTimeout(swithToAuth,1200);
+        setTimeout(swithToAuth,2000);
     });
 };
     render(){
         return(
             <View style={styles.container}>
-                {/* <ImageBackground source={require('../img/back.png')} style={styles.backgroundImage} > */}
+                <ImageBackground source={require('../img/3.png')} style={styles.backgroundImage} >
                 <Animated.View 
                 style={{
                     opacity: this.state.LogoAnime,
@@ -58,7 +58,7 @@ componentDidMount(){
                     <Text style={styles.logoText}>Ebus</Text>
                     <ActivityIndicator size="large" color="#00ff00" />
                 </Animated.View>
-                {/* </ImageBackground> */}
+                </ImageBackground>
             </View>
         );
     }
@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
         fontWeight:"200"
     },
     logo:{
-        width: 150,
+        width: 200,
         height:150
     },
     backgroundImage: {
-        resizeMode: 'stretch', // or 'stretch'
+        resizeMode: 'cover', // or 'stretch'
         width: '100%',
         height: '100%',
         justifyContent: "center",
