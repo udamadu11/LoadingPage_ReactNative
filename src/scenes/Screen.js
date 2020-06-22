@@ -25,11 +25,6 @@ export default class Screen extends React.Component{
                 <Text style={{fontSize:15,justifyContent:'center',alignSelf:'center',color:'grey'}}>or Via Social Media</Text>
                 <View style={{flexDirection:'row',margin:20,paddingVertical:20}}>
                     <TouchableOpacity>
-                    <Image 
-                    style={{width: 20,height:20,borderRadius:50,justifyContent:'center',alignSelf:'center'}}
-                    source={require('../img/G3.png')}
-                    resizeMode="contain"
-                />
                     </TouchableOpacity>
                 </View>
             </View>
