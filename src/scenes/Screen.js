@@ -1,47 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image ,TouchableOpacity,Modal} from 'react-native';
-import {Actions} from 'react-native-router-flux';
-import Login from './login';
-
+import { View, Text, StyleSheet, Image ,TouchableOpacity,ImageBackground,TextInput} from 'react-native';
 export default class Screen extends React.Component{
-state={
-    addVisible: false
-};
-
-toggleLoginModal(){
-    this.setState({addVisible: !this.state.addVisible});
-}
-
-    render(){
+   render(){
         return(
             <View style={StyleSheet.container}>
-                <Modal 
-                    animationType="slide"
-                    visible={this.state.addVisible}
-                    onRequestClose={()=>this.toggleLoginModal()}>
-
-                    <Login />        
-                </Modal>
+                <ImageBackground source={require('../img/screen.png')} style={styles.backgroundImage} >
+                
                 <Image 
-                    style={{width: 200,height:100,justifyContent:'center',alignSelf:'center',marginTop:70}}
+                    style={{width: 200,height:100,justifyContent:'center',alignSelf:'center'}}
                     source={require('../img/G3.png')}
                     resizeMode="contain"
                 />
-                <Text style={{fontSize:30,fontWeight:'bold',justifyContent:'center',alignSelf:'center'}}>Welcome Back</Text>
-                <Text style={{fontSize:15,justifyContent:'center',alignSelf:'center',color:'grey',paddingHorizontal:30}}>Install and use react-navigation 2.18.2, react-navigation-tabs 1.0.0.</Text>
+                <Text style={{fontSize:30,fontWeight:'bold',justifyContent:'center',alignSelf:'center'}}>Login</Text>
                 
-                <View style={{flexDirection:'row',margin:20,paddingVertical:20}}>
-                    <TouchableOpacity 
-                    style={{...styles.button,backgroundColor: '#2E71DC',}}
-                    onPress={() => this.toggleLoginModal()}
-                    >
+                <View style={{flexDirection:'column',marginTop:0}}>
+                <TextInput
+                    style={{height: 40,borderColor:'#a503fc',borderWidth:2,marginTop:10,width:300}}
+                    placeholder="Email"
+                />
+                <TextInput
+                    style={{height: 40,borderColor:'#a503fc',borderWidth:2,marginTop:10,padding:10,width:300}}
+                    placeholder="Password"
+                />
+                    <TouchableOpacity style={{...styles.button,backgroundColor: '#a503fc',marginTop:10,marginBottom:10,justifyContent:'center',alignSelf:'center',width:250}}>
                         <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Login</Text>
-
                     </TouchableOpacity>
-                    <TouchableOpacity style={{...styles.button,backgroundColor: 'green',}}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Registration</Text>
-                    </TouchableOpacity>
+                    
                 </View>
+                
                 <Text style={{fontSize:15,justifyContent:'center',alignSelf:'center',color:'grey'}}>or Via Social Media</Text>
                 <View style={styles.icon}>
                     <TouchableOpacity style={styles.image}>
@@ -66,6 +52,14 @@ toggleLoginModal(){
                     />
                     </TouchableOpacity>
                 </View>
+                <View style={{flexDirection:'row'}}>
+                    <Text style={{fontSize:15,justifyContent:'center',alignSelf:'center',color:'grey'}}>Already onBoard ? </Text>
+                    <TouchableOpacity>
+                        <Text style={{fontSize:20,color:'purple'}}>Sign up</Text>
+                    </TouchableOpacity>
+                </View>
+                
+            </ImageBackground>
             </View>
         );
     }
@@ -96,5 +90,12 @@ const styles = StyleSheet.create({
       },
       image:{
         paddingHorizontal:10,
+      },
+      backgroundImage: {
+        resizeMode: 'contain', // or 'stretch'
+        width: '100%',
+        height: '100%',
+        justifyContent: "center",
+        alignItems:'center'
       }
 });
